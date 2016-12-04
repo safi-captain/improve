@@ -1,7 +1,5 @@
 package com.safi.progress.mission.sudoku;
 
-import org.springframework.util.StringUtils;
-
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
