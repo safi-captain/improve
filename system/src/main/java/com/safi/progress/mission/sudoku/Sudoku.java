@@ -51,11 +51,11 @@ public class Sudoku {
 
         //找到下一个入口
         Map enter = getEnter(data);
-        int rowT = (int) enter.get("row"), colT = (int) enter.get("col");
-        if (rowT == 0 && colT == 0) {//全部填完
+        if (enter==null) {//全部填完
             printAll(data);
             System.exit(1);
         }
+        int rowT = (int) enter.get("row"), colT = (int) enter.get("col");
         List<Integer> avails = getAvailableList(data, rowT, colT);
         avails.stream().forEach(avail -> setNum(cloneSudoku(data), rowT, colT, avail));
     }
@@ -77,24 +77,17 @@ public class Sudoku {
     }
 
     public Map getEnter(int[][] data) {
-        int row = 0, col = 0;
-        if (data[0][0] != 0) {
-            for (int i = 0; i < ROWS; i++) {
-                for (int j = 0; j < COLS; j++) {
-                    if (data[i][j] == 0) {
-                        row = i;
-                        col = j;
-                        break;
-                    }
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
+                if (data[i][j] == 0) {
+                    Map result = new HashMap();
+                    result.put("row", i);
+                    result.put("col", j);
+                    return result;
                 }
-                if (row != 0 || col != 0) break;
             }
         }
-
-        Map result = new HashMap();
-        result.put("row", row);
-        result.put("col", col);
-        return result;
+        return null;
     }
 
     public List<Integer> getAvailableList(int[][] data, int row, int col) {// 获取所有可用的数字
