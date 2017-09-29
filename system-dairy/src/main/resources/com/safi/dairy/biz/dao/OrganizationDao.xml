@@ -1,0 +1,55 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.safi.dairy.biz.dao.OrganizationDao">
+    <select id="querySchoolDetail" parameterType="String" resultType="com.safi.dairy.biz.domain.School">
+        SELECT
+        school_id AS schoolId,
+        school_name AS schoolName,
+        school_desc AS schoolDesc,
+        school_template AS schoolTemplate
+        FROM tt_f_school
+        WHERE school_id = #{schoolId};
+    </select>
+    <select id="queryAimColleges" parameterType="String" resultType="com.safi.dairy.biz.domain.College">
+        SELECT
+        college_id AS collegeId,
+        college_name AS collegeName,
+        college_desc AS collegeDesc,
+        college_url AS collegeUrl,
+        college_phone AS collegePhone,
+        school_id AS schoolId,
+        college_template AS collegeTemplate
+        FROM tt_f_college
+        WHERE school_id = #{schoolId}
+        ORDER BY college_id;
+    </select>
+    <select id="queryAimCollege" parameterType="String" resultType="com.safi.dairy.biz.domain.College">
+        SELECT
+        c.college_id AS collegeId,
+        c.college_name AS collegeName,
+        c.college_desc AS collegeDesc,
+        c.college_url AS collegeUrl,
+        c.college_phone AS collegePhone,
+        c.school_id AS schoolId,
+        c.college_template AS collegeTemplate,
+        s.school_card_url AS schoolCardUrl
+        FROM tt_f_college c LEFT JOIN  tt_f_school s ON c.school_id = s.school_id
+        WHERE college_id = #{collegeId};
+    </select>
+    <select id="queryAimQQByCollegeId" parameterType="String" resultType="com.safi.dairy.biz.domain.QQ">
+        SELECT
+        qq AS qq,
+        q_name AS qName,
+        q_short_link AS qShortLink,
+        college_id AS collegeId
+        FROM tt_f_q
+        WHERE college_id = #{collegeId};
+    </select>
+    <select id="queryAimImgByCollegeId" parameterType="String" resultType="com.safi.dairy.biz.domain.Image">
+        SELECT
+        image_id AS imageId,
+        school_id AS schoolId,
+        image_url AS imageUrl
+        FROM tt_f_image
+        WHERE school_id = #{schoolId};
+    </select>
+</mapper>

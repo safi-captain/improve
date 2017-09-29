@@ -20,8 +20,8 @@ public class DataConfig {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
         dataSource.setUsername("root");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/rate");
-        dataSource.setPassword("123456");
+        dataSource.setUrl("");
+        dataSource.setPassword("111405131");
 
         return dataSource;
     }

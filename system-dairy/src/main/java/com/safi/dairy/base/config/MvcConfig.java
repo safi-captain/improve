@@ -36,7 +36,8 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     public FreeMarkerConfigurer freemarkerConfig() {
         FreeMarkerConfigurer result = new FreeMarkerConfigurer();
         result.setTemplateLoaderPaths("/WEB-INF/views/");
-        RemoteTemplateLoader remoteTemplateLoader = new RemoteTemplateLoader("http://safi.static.ngrok.cc/dairy-vue");
+        RemoteTemplateLoader remoteTemplateLoader = new RemoteTemplateLoader("http://60.205.200.161:33366/dairy-vue");
+//        RemoteTemplateLoader remoteTemplateLoader = new RemoteTemplateLoader("http://safi.static.ngrok.cc/dairy-vue");
         List<String> includePaths = new ArrayList<>();
         includePaths.add("index.html");
         remoteTemplateLoader.setIncludePaths(includePaths);

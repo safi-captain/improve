@@ -5,13 +5,11 @@ import com.safi.dairy.base.domain.News;
 import com.safi.dairy.base.domain.NewsMessage;
 import com.safi.dairy.base.domain.TextMessage;
 import com.safi.dairy.base.utils.MessageUtil;
-import com.safi.dairy.biz.member.domain.User;
 import org.dom4j.DocumentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,15 +29,6 @@ import static com.safi.dairy.base.domain.MessageType.TEXT;
 @RequestMapping("/system")
 public class SysController {
     private static final String token = "safi";
-
-    @ResponseBody
-    @RequestMapping("/init")
-    public User init(){
-        User user = new User();
-        user.setUserId("12345678910");
-        user.setUserName("safi");
-        return user;
-    }
 
     @RequestMapping("/index")
     public String index(Model model){

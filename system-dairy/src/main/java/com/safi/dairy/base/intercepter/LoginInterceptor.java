@@ -20,6 +20,6 @@ public class LoginInterceptor implements HandlerInterceptor {
     }
 
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) throws Exception {
-
+        System.out.println("渲染结束");
     }
 }

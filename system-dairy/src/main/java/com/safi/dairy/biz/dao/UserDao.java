@@ -1,6 +1,6 @@
-package com.safi.dairy.biz.member.dao;
+package com.safi.dairy.biz.dao;
 
-import com.safi.dairy.biz.member.domain.User;
+import com.safi.dairy.biz.domain.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
