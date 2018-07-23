@@ -5,9 +5,12 @@ import com.safi.dairy.biz.dao.UserDao;
 import com.safi.dairy.biz.domain.School;
 import com.safi.dairy.biz.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Created by safi on 17/5/31.
@@ -24,6 +27,9 @@ public class UserController {
 
     @RequestMapping("/init")
     public User init(){
+        List<User> users = userDao.getAllUsers();
+        System.out.println(CollectionUtils.isEmpty(users));
+        System.out.println(users == null);
         User user = userDao.getAllUsers().get(0);
 //        User user = new User();
 //        user.setUserId("12345678910");
