@@ -1,0 +1,31 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: microservice-provider-user
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource: # 指定数据源
+    platform: h2                        # 指定数据源类型
+    url: jdbc:h2:mem:micro;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE   #mem：连接到内存
+    driver-class-name: org.h2.Driver
+    username: root
+    password: 123456
+    schema: classpath:db/schema.sql        # 指定h2数据库的建表脚本
+    data: classpath:db/data.sql            # 指定h2数据库的insert脚本
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch.youran.persistence: ERROR
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/    # 指定注册中心的地址
+  instance:
+    preferIpAddress: true
