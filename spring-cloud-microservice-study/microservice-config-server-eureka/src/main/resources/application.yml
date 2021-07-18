@@ -1,0 +1,18 @@
+server:
+  port: 8050
+spring:
+  application:
+    name: microservice-config-server-eureka
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/safi-captain/improve.git
+          label: master # 对应 {label} 部分，即 Git 的分支
+          search-paths: spring-cloud-microservice-study/config-repo # 仓库文件夹名称，多个以逗号分隔
+          #          username:
+          #          password:
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/

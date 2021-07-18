@@ -3,13 +3,13 @@ package com.safi.micro;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
+@EnableConfigServer
 @EnableDiscoveryClient
-@EnableFeignClients
-public class MovieFeignApplication {
+public class ConfigServerEurekaApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MovieFeignApplication.class, args);
+        SpringApplication.run(ConfigServerEurekaApplication.class, args);
     }
 }

@@ -14,6 +14,7 @@
         <module>microservice-provider-user</module>
         <module>microservice-provider-user</module>
         <module>microservice-consumer-movie-feign</module>
+        <module>microservice-discovery-eureka/microservice-config-server-eureka</module>
         <!--        <module>microservice-consumer-movie-ribbon</module>-->
         <!--        <module>microservice-consumer-movie-feign</module>-->
         <!--        <module>microservice-consumer-movie-ribbon-with-hystrix</module>-->

@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservice-consumer-movie-feign" />
+        <module name="microservice-config-server-eureka" />
         <module name="microservice-discovery-eureka" />
         <module name="microservice-provider-user" />
       </profile>
